@@ -22,14 +22,17 @@ function App() {
 
   return (
     <div>
-      <NavLink className={buildCssClasses} to="/">
-        Home
-      </NavLink>
+      <header className={css.header}>
+        <nav>
+          <NavLink className={buildCssClasses} to="/">
+            Home
+          </NavLink>
 
-      <NavLink className={buildCssClasses} to="/movies">
-        Movies
-      </NavLink>
-
+          <NavLink className={buildCssClasses} to="/movies">
+            Movies
+          </NavLink>
+        </nav>
+      </header>
       <div>
         <Routes>
           <Route path="/" element={<HomePage />} />

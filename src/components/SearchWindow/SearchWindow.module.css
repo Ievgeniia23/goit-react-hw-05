@@ -1,0 +1,30 @@
+.searchWindow {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+   
+    position: fixed;
+    top: 160px;
+    left: 20px;
+
+    }
+
+
+.input {
+ padding: 10px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  width: 300px; 
+  font-size: 18px;
+  color: black;
+  border: 2px, solid, rgb(80, 48, 110);
+}
+
+.btn {
+ padding: 10px;
+   font-size: 18px;
+   background-color: rgb(186, 150, 220);
+ border: 2px, solid, rgb(80, 48, 110);
+ border-top-right-radius: 4px;
+ border-bottom-right-radius: 4px;
+}

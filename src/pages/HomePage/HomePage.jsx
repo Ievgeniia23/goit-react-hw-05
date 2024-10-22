@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import fetchMovies from '../../filmCollection';
 
 import MovieList from '../../components/MovieList/MovieList';
+import css from './HomePage.module.css'
 
 
 
@@ -20,8 +21,8 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Popular Movies</h1>
+    <div className={css.homeWrapper}>
+      <h1 className={css.listTitle}>Tranding today</h1>
       {loading ? <p>Loading...</p> : <MovieList movies={movies} />}
     </div>
   );

@@ -1,5 +1,5 @@
 import toast, { Toaster } from 'react-hot-toast';
-import css from './SearchBar.module.css';
+import css from './SearchWindow.module.css';
 import { Formik, Form, Field } from 'formik';
 
 const SearchWindow = ({ submit }) => {
@@ -21,7 +21,7 @@ const SearchWindow = ({ submit }) => {
     actions.resetForm();
   };
   return (
-    <header className={css.searchBar}>
+    <div className={css.searchWindow}>
       <Toaster position="top-right"></Toaster>
       <Formik initialValues={{ query: '' }} onSubmit={handleSubmit}>
         <Form>
@@ -39,7 +39,7 @@ const SearchWindow = ({ submit }) => {
           </button>
         </Form>
       </Formik>
-    </header>
+    </div>
   );
 };
 

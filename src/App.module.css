@@ -1,0 +1,34 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #c6a0ee;
+  padding: 40px 60px;
+  /* z-index: 1000; Щоб хедер завжди був зверху */
+  margin-bottom: 40px;
+  box-shadow: 0 12px 6px rgba(35, 17, 90, 0.5);
+
+}
+
+nav {
+  display: flex;
+  justify-content: flex-start; 
+ 
+  gap: 20px; 
+}
+
+.link {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.active {
+  color: rgb(127, 65, 198); /* Виділення активного посилання */
+}
