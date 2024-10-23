@@ -24,7 +24,7 @@ export const fetchMovies = async (searchQuery, page = 1) => {
       },
     });
 
-    console.log(response.data);
+    
     return response.data.results;
   } catch (error) {
     console.error('Error fetching movies:', error);
@@ -32,6 +32,15 @@ export const fetchMovies = async (searchQuery, page = 1) => {
   }
 };
 
+export const fetchTrendingMovies = async () => {
+  try {
+    const response = await axiosInstance.get('trending/movie/day');
+    return response.data.results;
+  } catch (error) {
+    console.error('Error fetching trending movies:', error);
+    throw error;
+  }
+};
 
 export const fetchPopularMovies = async () => {
   try {

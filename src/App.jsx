@@ -6,7 +6,7 @@ import './App.css';
 import css from './App.module.css';
 import Loader from './components/Loader/Loader';
 
-// Ліниві завантаження компонентів
+
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 const MoviesPage = lazy(() => import('./pages/MoviesPage/MoviesPage'));
 const MovieDetailsPage = lazy(() =>
@@ -22,11 +22,9 @@ function App() {
   return (
     <Suspense fallback={<Loader />}>
       <div>
-        <header className={css.header}>
-          {/* Навігація перенесена в окремий компонент */}
+       
           <Navigation />
-        </header>
-        <main>
+        <main className={css.mainWrapper}>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/movies" element={<MoviesPage />} />

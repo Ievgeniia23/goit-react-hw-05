@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 import { fetchMovieDetails } from '../../filmCollection';
 import Loader from '../../components/Loader/Loader';
+import css from './MovieDetailsPage.module.css'
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
@@ -40,7 +41,7 @@ const MovieDetailsPage = () => {
   if (!movie) return <p>Movie not found</p>;
 
   return (
-    <div>
+    <div className={css.detailsWrapper}>
       <button onClick={handleGoBack}>Go Back</button>
 
       <h2>{movie.title}</h2>
@@ -57,7 +58,6 @@ const MovieDetailsPage = () => {
         <Link to="reviews">Reviews</Link>
       </nav>
 
-      {/* Вкладені маршрути для Cast і Reviews */}
       <Outlet />
     </div>
   );

@@ -2,12 +2,15 @@
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
   width: 100%;
-  background-color: #c6a0ee;
+  height: 60px;
+  background-color: #031557d4;
   padding: 40px 60px;
   z-index: 1000; 
   margin-bottom: 40px;
-  box-shadow: 0 12px 6px rgba(35, 17, 90, 0.5);
+  box-shadow: 0 12px 6px rgba(64, 9, 244, 0.5);
+  margin: 0;
 
 }
 
@@ -30,5 +33,5 @@ nav {
 }
 
 .active {
-  color: rgb(127, 65, 198); /* Виділення активного посилання */
+  color: rgb(129, 97, 235); /* Виділення активного посилання */
 }

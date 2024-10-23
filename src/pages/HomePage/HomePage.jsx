@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { fetchMovies } from '../../filmCollection';
+import { fetchTrendingMovies } from '../../filmCollection';
 import MovieList from '../../components/MovieList/MovieList';
 import Loader from '../../components/Loader/Loader';
 import css from './HomePage.module.css';
@@ -9,19 +9,19 @@ const HomePage = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const getPopularMovies = async () => {
+    const getTrendingMovies = async () => {
       setLoading(true);
       try {
-        const movies = await fetchMovies('popular');
+        const movies = await fetchTrendingMovies('popular');
         setMovies(movies);
       } catch (error) {
-        console.error('Error fetching popular movies', error);
+        console.error('Error fetching trending movies', error);
       } finally {
         setLoading(false);
       }
     };
 
-    getPopularMovies();
+    getTrendingMovies();
   }, []);
 
   return (
