@@ -1,19 +1,19 @@
 .searchWindow {
     display: flex;
     justify-content: center;
-    margin: auto;
-   
-    position: fixed;
-    top: 160px;
-    left: 20px;
-
+    margin-top: 140px;
+    margin-left: 20px;
+      
+  position: relative; 
+  z-index: 1;
+  box-shadow:0 12px 6px rgba(35, 17, 90, 0.5) ;
     }
 
 
 .input {
  padding: 10px;
   border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
+  border-bottom-radius: 4px;
   width: 300px; 
   font-size: 18px;
   color: black;

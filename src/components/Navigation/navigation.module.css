@@ -1,4 +1,4 @@
-/* .header {
+.header {
   position: fixed;
   top: 0;
   left: 0;
@@ -30,5 +30,5 @@ nav {
 }
 
 .active {
-  color: rgb(127, 65, 198);
-} */
+  color: rgb(127, 65, 198); /* Виділення активного посилання */
+}

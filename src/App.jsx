@@ -1,53 +1,45 @@
-import { NavLink } from 'react-router-dom'
-import { Route, Routes } from 'react-router-dom'
-import './App.css'
-import css from './App.module.css'
-import clsx from 'clsx'
+// App.jsx
+import { lazy, Suspense } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import Navigation from './components/Navigation/Navigation'; // Імпорт Navigation
+import './App.css';
+import css from './App.module.css';
+import Loader from './components/Loader/Loader';
 
-import HomePage from './pages/HomePage/HomePage'
-import MoviesPage from './pages/MoviesPage/MoviesPage';
-import MovieDetailsPage from './pages/MovieDetailsPage/MovieDetailsPage';
-import MovieCast from './components/MovieCast/MovieCast';
-import MovieReviews from './components/MovieReviews/MovieReviews';
-import NotFoundPage from './pages/NotFoundPage/NotFoundPage'
-
-
-const buildCssClasses = ({ isActive }) => 
-  clsx(css.link, isActive && css.active)
-
-
-
+// Ліниві завантаження компонентів
+const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
+const MoviesPage = lazy(() => import('./pages/MoviesPage/MoviesPage'));
+const MovieDetailsPage = lazy(() =>
+  import('./pages/MovieDetailsPage/MovieDetailsPage')
+);
+const MovieCast = lazy(() => import('./components/MovieCast/MovieCast'));
+const MovieReviews = lazy(() =>
+  import('./components/MovieReviews/MovieReviews')
+);
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage/NotFoundPage'));
 
 function App() {
-
   return (
-    <div>
-      <header className={css.header}>
-        <nav>
-          <NavLink className={buildCssClasses} to="/">
-            Home
-          </NavLink>
-
-          <NavLink className={buildCssClasses} to="/movies">
-            Movies
-          </NavLink>
-        </nav>
-      </header>
+    <Suspense fallback={<Loader />}>
       <div>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/movies" element={<MoviesPage />} />
-
-          <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
-            <Route path="cast" element={<MovieCast />} />
-            <Route path="reviews" element={<MovieReviews />} />
-          </Route>
-
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
+        <header className={css.header}>
+          {/* Навігація перенесена в окремий компонент */}
+          <Navigation />
+        </header>
+        <main>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/movies" element={<MoviesPage />} />
+            <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
+              <Route path="cast" element={<MovieCast />} />
+              <Route path="reviews" element={<MovieReviews />} />
+            </Route>
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </main>
       </div>
-    </div>
+    </Suspense>
   );
 }
 
-export default App
+export default App;
