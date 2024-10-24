@@ -3,12 +3,42 @@
  margin: 80px;
 }
 
-.descriptionWrap {
-    display: flex;
+.btnGoBack {
+  margin-bottom: 40px;
+  color: rgba(50, 33, 105, 0.989); ;
+  font-size: 16px;
+  padding: 6px 14px;
+  border: 2px solid rgb(54, 7, 107);
+  background-color: rgba(64, 9, 244, 0.5);
+  border-radius: 8px;
 }
 
+
+.itemWrap {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 30px;
+}
+
+h4, p {
+  margin: 0;
+}
+
+.descriptionWrap {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+
+}
+.movieTitle {
+  color: rgb(210, 19, 89);
+  font-size: 30px;
+}
+
+
+
 .link {
-  color: rgb(100, 10, 88);
+  color: rgb(144, 10, 126);
   font-size: 24px;
 }
 
@@ -17,6 +47,12 @@
 }
 
 .imgStyle {
-    width: 200px;
-    height: 300px;
+   
+    height: 350px;
+}
+
+.inform {
+  border-top: 1px solid rgb(115, 5, 134);
+  border-bottom:1px solid rgb(115, 5, 134); 
+  padding: 18px 0px;
 }

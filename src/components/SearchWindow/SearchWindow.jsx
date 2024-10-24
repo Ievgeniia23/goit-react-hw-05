@@ -24,7 +24,7 @@ const SearchWindow = ({ onSubmit }) => {
     <div className={css.searchWindow}>
       <Toaster position="top-right"></Toaster>
       <Formik initialValues={{ query: '' }} onSubmit={handleSubmit}>
-        <Form>
+        <Form className={css.formStyle} >
           <Field
             className={css.input}
             type="text"

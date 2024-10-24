@@ -1,7 +1,7 @@
 // components/Navigation/Navigation.jsx
 import { NavLink } from 'react-router-dom';
 import clsx from 'clsx';
-import css from './navigat.module.css';
+import css from './Navigation.module.css';
 
 
 const buildCssClasses = ({ isActive }) =>

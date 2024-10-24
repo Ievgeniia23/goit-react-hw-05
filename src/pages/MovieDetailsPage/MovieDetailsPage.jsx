@@ -11,6 +11,9 @@ import Loader from '../../components/Loader/Loader';
 import css from './MovieDetailsPage.module.css'
 import clsx from 'clsx';
 
+const defaultImg =
+  'https://dl-media.viber.com/10/share/2/long/vibes/icon/image/0x0/95e0/5688fdffb84ff8bed4240bcf3ec5ac81ce591d9fa9558a3a968c630eaba195e0.jpg';
+
 const buildCssClasses = ({ isActive }) =>
   clsx(css.link, isActive && css.active);
 
@@ -46,19 +49,35 @@ const MovieDetailsPage = () => {
 
   return (
     <div className={css.detailsWrapper}>
-      <button onClick={handleGoBack}>Go Back</button>
-
-      <h2>{movie.title}</h2>
-      <div className={css.descriptionWrap}>
+      <button className={css.btnGoBack} onClick={handleGoBack}>
+        Go back
+      </button>
+      <div className={css.itemWrap}>
         <img
           className={css.imgStyle}
-          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+           src={movie.poster_path 
+          ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` 
+          : defaultImg}
           alt={movie.title}
-          width="300"
+          width="250"
+          alt='poster'
         />
-        <p>{movie.overview}</p>
+
+       
+        <div className={css.descriptionWrap}>
+          <h2 className={css.movieTitle}>{movie.title}</h2>
+
+          <h4>Description:</h4>
+          <p>{movie.overview}</p>
+
+          <h4>Release date:</h4>
+          <p>{movie.release_date}</p>
+
+          <h4>User score:</h4>
+          <p> {movie.vote_average}</p>
+        </div>
       </div>
-      <nav>
+      <nav className={css.inform}>
         <NavLink
           className={buildCssClasses}
           to="cast"
