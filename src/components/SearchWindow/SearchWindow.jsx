@@ -2,7 +2,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import css from './SearchWindow.module.css';
 import { Formik, Form, Field } from 'formik';
 
-const SearchWindow = ({ submit }) => {
+const SearchWindow = ({ onSubmit }) => {
   const handleSubmit = (values, actions) => {
     if (values.query.trim() === '') {
       toast('Please enter a request', {
@@ -17,7 +17,7 @@ const SearchWindow = ({ submit }) => {
       });
       return;
     }
-    submit(values.query);
+    onSubmit(values.query);
     actions.resetForm();
   };
   return (

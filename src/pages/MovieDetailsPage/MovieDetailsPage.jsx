@@ -2,13 +2,17 @@ import { useEffect, useState, useRef } from 'react';
 import {
   useParams,
   Outlet,
-  Link,
+  NavLink,
   useLocation,
   useNavigate,
 } from 'react-router-dom';
 import { fetchMovieDetails } from '../../filmCollection';
 import Loader from '../../components/Loader/Loader';
 import css from './MovieDetailsPage.module.css'
+import clsx from 'clsx';
+
+const buildCssClasses = ({ isActive }) =>
+  clsx(css.link, isActive && css.active);
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
@@ -16,7 +20,7 @@ const MovieDetailsPage = () => {
   const [loading, setLoading] = useState(true);
   const location = useLocation();
   const navigate = useNavigate();
-  const backLinkRef = useRef(location.state?.from || '/movies'); // Для повернення назад
+  const backLinkRef = useRef(location.state?.from || '/movies'); 
 
   useEffect(() => {
     const getMovieDetails = async () => {
@@ -45,17 +49,30 @@ const MovieDetailsPage = () => {
       <button onClick={handleGoBack}>Go Back</button>
 
       <h2>{movie.title}</h2>
-      <img
-        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-        alt={movie.title}
-        width="300"
-      />
-      <p>{movie.overview}</p>
-
-      
+      <div className={css.descriptionWrap}>
+        <img
+          className={css.imgStyle}
+          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+          alt={movie.title}
+          width="300"
+        />
+        <p>{movie.overview}</p>
+      </div>
       <nav>
-        <Link to="cast">Cast</Link>
-        <Link to="reviews">Reviews</Link>
+        <NavLink
+          className={buildCssClasses}
+          to="cast"
+          state={{ from: backLinkRef.current }}
+        >
+          Cast
+        </NavLink>
+        <NavLink
+          className={buildCssClasses}
+          to="reviews"
+          state={{ from: backLinkRef.current }}
+        >
+          Reviews
+        </NavLink>
       </nav>
 
       <Outlet />

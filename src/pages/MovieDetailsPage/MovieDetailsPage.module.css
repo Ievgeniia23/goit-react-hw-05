@@ -1,6 +1,22 @@
 .detailsWrapper {
  flex: 1;
  margin: 80px;
+}
 
+.descriptionWrap {
+    display: flex;
+}
 
+.link {
+  color: rgb(100, 10, 88);
+  font-size: 24px;
+}
+
+.active {
+  color: rgb(129, 97, 235); 
+}
+
+.imgStyle {
+    width: 200px;
+    height: 300px;
 }
